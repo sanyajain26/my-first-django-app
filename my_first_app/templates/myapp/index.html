@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+
+    <title>{% block title %} POSTS {% endblock %}</title>
+    
+</head>
+<body>
+    <p><a href="{% url 'logout' %}">Logout</a></p>
+    
+    {% block content %}
+    <div class="form-group">
+        <h2>Post</h2>
+        <form method="POST" action="">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" >Save</button>
+        </form>
+    </div>
+    {% endblock %}
+
+    <h1> View Post </h1>
+    <ul>
+    {% for val in value %}
+    <li>{{ val.Title }}</li>
+    <li>{{ val.Posted_on }}</li>
+    <li>{{ val.Description }}</li>
+    <li>{{ val.author }}</li>
+    <p>!----------------------------------!</p>
+    {% endfor %}
+    </ul>
+
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+
+    <title>{% block title %} Login {% endblock %}</title>
+    
+</head>
+<body>
+
+    {% block content %}
+    <div class="form-group">
+        <h2>Login</h2>
+        <form method="POST" action="">{% csrf_token %}
+            <p> Username:<input type="text" name="username" placeholder="Sanya"/></p>
+            <p> Password:<input type="password" name="password" placeholder=""/></p>
+            <button type="submit" >Login</button>
+        </form>
+        {% for message in messages %}
+          {{message}}
+        {% endfor %}
+
+         <p>NewUser? <a href="{% url 'register' %}">Sign Up</a></p> 
+    </div>
+    {% endblock %}
+
+    
+
+    
+</body>
+</html>
